@@ -50,6 +50,7 @@ while cupos < n and cupos < 30:
     #
 if cupos == 30:
     print("PARQUEADERO LLENO")
+
     
 
 
