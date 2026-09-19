@@ -8,6 +8,21 @@ while cupos < n and cupos < 30:
     hora = int(input("Hora(formato 24h): "))
     permanencia = float(input("Horas de permanencia: "))
 
+    #validacion de hora 
+    if hora < 0 or hora> 23:
+        print(" error, porfavor verificar la hora, debe esta entre 0 y 23")
+        continue
+
+    #validacion de tipo usuario 
+    if tipo != "E" and tipo != "D" and tipo != "V":
+        print("Advertencia: este usuario, se tomara como visitante.")
+        tipo = "V"
+
+    #validacion de permanencia 
+    if permanencia <= 0:
+        print("rechazo de registro")
+        continue
+
     # Calculo de tarifa segun tipo de usuario
     if tipo == "E":
         if permanencia <= 2:
