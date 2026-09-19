@@ -1,6 +1,11 @@
 n = int(input("Cantidad de vehiculos: "))
 
 cupos = 0
+total_recaudado = 0.0
+estudiantes = 0
+docentes = 0
+visitantes = 0
+suma_horas = 0.0
 
 while cupos < n and cupos < 30:
     placa = input("Placa: ")
@@ -46,11 +51,32 @@ while cupos < n and cupos < 30:
 
     print("Cobro: $", cobro)
 
+    total_recaudado += cobro
+    suma_horas += permanencia
+    if tipo == "E":
+        estudiantes += 1
+    elif tipo == "D":
+        docentes += 1
+    else:
+        visitantes += 1
+
     cupos += 1
-    #
+    
 if cupos == 30:
     print("PARQUEADERO LLENO")
+if cupos > 0:
+    promedio = suma_horas / cupos
+else:
+    promedio = 0.0
+ocupacion = cupos / 30 * 100
 
+print("\n====== RESUMEN DEL DIA ======")
+print("Vehiculos registrados:", str(cupos) + "/30")
+print("Ocupacion:", str(round(ocupacion, 1)) + "%")
+print("Recaudo total: $" + str(round(total_recaudado, 2)))
+print("Estudiantes:", estudiantes, "| Docentes:", docentes, "| Visitantes:", visitantes)
+print("Promedio de permanencia:", round(promedio, 1), "horas")
+print("==============================")
     
 
 
