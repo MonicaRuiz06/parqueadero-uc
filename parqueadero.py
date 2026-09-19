@@ -36,6 +36,12 @@ while cupos < n and cupos < 30:
             cobro = 1500.0
         else:
             cobro = 1500 + (permanencia - 1) * 1200
+    # Descuento nocturno (despues de las 19:00 o antes de las 6:00)
+    if hora > 19 or hora < 6:
+        cobro = cobro * 0.90
+
+    cobro = round(cobro, 2)
+
 
     print("Cobro: $", cobro)
 
