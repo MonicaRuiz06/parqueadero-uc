@@ -1,4 +1,5 @@
 n = int(input("Cantidad de vehiculos: "))
+es_sabado = input("Es sabado? (True/False): ") == "True"
 
 cupos = 0
 total_recaudado = 0.0
@@ -36,15 +37,20 @@ while cupos < n and cupos < 30:
         else:
             cobro = (permanencia - 2) * 800
     elif tipo == "D":
-        cobro = 5000
+        cobro = permanencia * 500
     else:
         if permanencia <= 1:
             cobro = 1500.0
         else:
             cobro = 1500 + (permanencia - 1) * 1200
-    # Descuento nocturno (despues de las 19:00 o antes de las 6:00)
-    if hora > 19 or hora < 6:
-        cobro = cobro * 0.90
+# Sabado: visitantes -20% y sin descuento nocturno
+    if es_sabado:
+        if tipo == "V":
+            cobro = cobro * 0.80
+    else:
+        # Descuento nocturno (despues de las 19:00 o antes de las 6:00)
+        if hora > 19 or hora < 6:
+            cobro = cobro * 0.90
 
     cobro = round(cobro, 2)
 
