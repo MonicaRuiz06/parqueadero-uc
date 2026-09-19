@@ -4,6 +4,7 @@ cupos = 0
 
 while cupos < n and cupos < 30:
     placa = input("Placa: ")
+
     tipo = input("Tipo de usuario(E/D/V): ")
     hora = int(input("Hora(formato 24h): "))
     permanencia = float(input("Horas de permanencia: "))
@@ -46,3 +47,9 @@ while cupos < n and cupos < 30:
     print("Cobro: $", cobro)
 
     cupos += 1
+    #
+if cupos == 30:
+    print("PARQUEADERO LLENO")
+    
+
+
